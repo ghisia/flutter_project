@@ -37,13 +37,13 @@ class _BusListScreenState extends State<BusListScreen> {
             },
           ),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: Text("Cancel"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
-            FlatButton(
+            TextButton(
               child: Text("Add"),
               onPressed: () {
                 setState(() {
@@ -65,9 +65,9 @@ class _BusListScreenState extends State<BusListScreen> {
   }
 
   int getRandomNumber() {
-  Random random = new Random();
-  return random.nextInt(31) + 20;
-}
+    Random random = new Random();
+    return random.nextInt(31) + 20;
+  }
 
   void _updateBus(int index) {
     showDialog(
@@ -107,15 +107,14 @@ class _BusListScreenState extends State<BusListScreen> {
   }
 
   List<String> numberList(int n) {
-  List<String> list = [];
+    List<String> list = [];
 
-  for (int i = 1; i <= n; i++) {
-    list.add(i.toString());
+    for (int i = 1; i <= n; i++) {
+      list.add(i.toString());
+    }
+
+    return list;
   }
-
-  return list;
-}
-
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +130,10 @@ class _BusListScreenState extends State<BusListScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => BusDetailScreen(bus: _buses[index].name, seats: numberList( _buses[index].seats),),
+                  builder: (context) => BusDetailScreen(
+                    bus: _buses[index].name,
+                    seats: numberList(_buses[index].seats),
+                  ),
                 ),
               )
             },
